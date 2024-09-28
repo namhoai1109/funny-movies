@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import QueryClientLayout from "@/components/QueryClientLayout/QueryClientLayout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Video Sharing App",
+  title: "Funny Movies",
   description: "A Youtube video sharing app",
 };
 
@@ -28,7 +30,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <QueryClientLayout>{children}</QueryClientLayout>
+        <Toaster />
       </body>
     </html>
   );
