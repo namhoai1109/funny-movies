@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import { authRequest } from "../axios";
-import { ME_PATH } from "./path";
+import { ME_PATH } from "./paths";
 
 export const getMe = async () => {
   const access_token = localStorage.getItem("accessToken");
@@ -10,8 +10,8 @@ export const getMe = async () => {
         id: 0,
         email: "",
       },
-    } as AxiosResponse<TMeResponse>;
+    } as AxiosResponse<TUserResponse>;
   }
 
-  return authRequest.get<TMeResponse, AxiosResponse<TMeResponse>>(ME_PATH);
+  return authRequest.get<TUserResponse, AxiosResponse<TUserResponse>>(ME_PATH);
 };

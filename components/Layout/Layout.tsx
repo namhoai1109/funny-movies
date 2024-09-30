@@ -9,7 +9,7 @@ function Layout({ children }: ILayoutProps) {
     <div className="w-screen">
       <Navbar />
       <main className="mt-[60px] flex-center w-screen">
-        <div className="w-[1024px] px-10">{children}</div>
+        <div className="w-[1024px] px-10 flex justify-center">{children}</div>
       </main>
     </div>
   );

@@ -10,7 +10,7 @@ function RegisterForm() {
     password: "",
   });
 
-  const { mutate } = useRegister();
+  const { mutate, isLoading } = useRegister();
   const router = useRouter();
 
   const onRegister = () => {
@@ -57,7 +57,7 @@ function RegisterForm() {
         }}
       />
       <button
-        className="button-md border-2 border-black custom-shadow"
+        className="button-md border-2 border-black custom-shadow flex-center gap-x-2"
         onClick={() => {
           if (!credentials.email || !credentials.password) {
             toast.error("Please fill in all the fields");
@@ -68,6 +68,7 @@ function RegisterForm() {
         }}
       >
         Register
+        {isLoading && <span className="loader size-4" />}
       </button>
     </>
   );

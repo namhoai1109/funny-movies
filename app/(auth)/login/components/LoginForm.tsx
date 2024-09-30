@@ -10,7 +10,7 @@ function LoginForm() {
     password: "",
   });
 
-  const { mutate } = useLogin();
+  const { mutate, isLoading } = useLogin();
   const router = useRouter();
 
   const onLogin = () => {
@@ -57,12 +57,13 @@ function LoginForm() {
         }}
       />
       <button
-        className="button-md border-2 border-black custom-shadow"
+        className="transition-effect button-md border-2 border-black custom-shadow flex-center gap-x-2"
         onClick={() => {
           onLogin();
         }}
       >
         Login
+        {isLoading && <span className="loader size-4" />}
       </button>
     </>
   );

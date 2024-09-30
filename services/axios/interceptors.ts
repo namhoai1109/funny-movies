@@ -13,7 +13,7 @@ const responseInterceptor = (response: AxiosResponse) => {
 
 const requestInterceptor = (config: InternalAxiosRequestConfig) => {
   config.headers.set("Content-Type", "application/json");
-  console.info("request API ", `${config.baseURL}${config.url}`);
+  // console.info("request API ", `${config.baseURL}${config.url}`);
   return config;
 };
 
@@ -23,20 +23,23 @@ const requestAuthInterceptor = async (config: InternalAxiosRequestConfig) => {
     config.headers.set("Authorization", accessToken);
   }
   config.headers.set("Content-Type", "application/json");
-  console.info("request API ", `${config.baseURL}${config.url}`);
+  // console.info("request API ", `${config.baseURL}${config.url}`);
   return config;
 };
 
 const handleErrorInterceptor = (error: TErrorResponse | AxiosError) => {
-  console.error(error);
-  const messageServer = _get(error, "response.data.error.message", "");
+  console.error("dasdad", error);
+  let messageServer = _get(error, "response.data.error.message", "");
+  if (messageServer === "") {
+    messageServer = _get(error, "response.data", "") as string;
+  }
   const codeServer = _get(error, "response.data.error.code", 0);
   const messageAxios = _get(error, "message", "");
   const codeAxios = _get(error, "code", "");
 
   if (codeServer && codeServer === 401 && messageServer.includes("expired")) {
-    toast.error("Token expired");
-    // logout();
+    toast.error("Token expired, please login again");
+    localStorage.removeItem("accessToken");
   } else {
     if (codeAxios && codeAxios === "ERR_NETWORK") {
       toast.error(messageAxios);

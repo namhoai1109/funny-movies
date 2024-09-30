@@ -7,7 +7,7 @@ function Register() {
   return (
     <main className="size-full flex-center">
       <div className="w-2/3 h-full flex-center border-r-2 border-black">
-        <Image src={img} alt="Video Tutorial" className="h-full object-cover" />
+        <Image src={img} alt="Video Tutorial" className="w-2/3 object-cover" />
       </div>
       <div className="w-1/3 flex-center">
         <div className="w-2/3 flex flex-col items-center gap-y-4">

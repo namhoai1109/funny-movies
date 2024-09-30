@@ -1,9 +1,12 @@
 "use client";
 import { useGetMe } from "@/services/me/services";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function NavbarItems() {
   const { data, refetch } = useGetMe();
+  const pathName = usePathname();
+  const isSharePage = pathName === "/share";
   const isAuthenticated = data !== undefined && data.data.id !== 0;
 
   if (isAuthenticated) {
@@ -11,12 +14,14 @@ function NavbarItems() {
     return (
       <div className="flex-center">
         <span className="mr-4">Welcome {user.email} !</span>
-        <button className="button-md border-2 border-black custom-shadow">
-          Share
-        </button>
+        <Link href={isSharePage ? "/" : "/share"}>
+          <button className="button-md border-2 border-black custom-shadow">
+            {isSharePage ? "Home" : "Share"}
+          </button>
+        </Link>
         <div className="h-8 w-0.5 bg-neutral-400 rounded-full ml-5" />
         <button
-          className="transition-effect button-md"
+          className="button-md"
           onClick={() => {
             localStorage.removeItem("accessToken");
             refetch();
@@ -31,7 +36,7 @@ function NavbarItems() {
   return (
     <div className="flex-center gap-x-2">
       <Link href="/login">
-        <button className="transition-effect button-md">Login</button>
+        <button className="button-md">Login</button>
       </Link>
       <Link href="/register">
         <button className="button-md border-2 border-black custom-shadow">

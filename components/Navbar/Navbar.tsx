@@ -4,7 +4,7 @@ import tvIcon from "@/assets/images/television.png";
 
 function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 border-b-2 border-black h-[60px] flex-center">
+    <nav className="fixed top-0 left-0 right-0 border-b-2 border-black h-[60px] flex-center bg-white">
       <div className="w-[1024px] flex items-center justify-between">
         <div className="flex-center gap-x-2">
           <Image
