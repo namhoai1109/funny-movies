@@ -7,20 +7,33 @@ import toast from "react-hot-toast";
 
 const SERVER_NAME = process.env.NEXT_PUBLIC_SERVER_NAME;
 const SERVER_PORT = process.env.NEXT_PUBLIC_SERVER_PORT;
+const STAGE = process.env.NEXT_PUBLIC_STAGE;
 
 function NavbarItems() {
   const { data, refetch } = useGetMe();
   const pathName = usePathname();
   const isSharePage = pathName === "/share";
   const isAuthenticated = data !== undefined && data.data.id !== 0;
-  const ws = useMemo(
-    () => new WebSocket(`ws://${SERVER_NAME}:${SERVER_PORT}/ws`),
-    []
-  );
+
+  const ws = useMemo(() => {
+    const url =
+      STAGE === "development"
+        ? `ws://${SERVER_NAME}:${SERVER_PORT}/ws`
+        : `wss://${SERVER_NAME}/ws`;
+    return new WebSocket(url);
+  }, []);
 
   useEffect(() => {
     ws.onopen = () => {
       console.log("ws connected");
+    };
+
+    ws.onclose = () => {
+      console.log("ws disconnected");
+    };
+
+    ws.onerror = (error) => {
+      console.log("ws error", error);
     };
 
     ws.onmessage = (event) => {

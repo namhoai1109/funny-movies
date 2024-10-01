@@ -13,8 +13,12 @@ function Main() {
 
   if (isLoading) {
     return (
-      <div className="w-full flex-center mt-4">
+      <div className="w-full flex-center flex-col  gap-y-3 mt-4">
         <span className="loader-md size-6" />
+        <div className="w-2/3 text-sm text-center p-2 rounded bg-neutral-200 text-neutral-500">
+          The server is deployed on Render and will spin down with inactivity,
+          which can delay requests by 50 seconds or more.
+        </div>
       </div>
     );
   }
