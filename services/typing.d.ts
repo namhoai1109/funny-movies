@@ -43,3 +43,8 @@ type TLinkResponse = {
 type TTotalLinksResponse = {
   total: number;
 };
+
+type TWsMessage = {
+  video_title: string;
+  email_sender: string;
+};

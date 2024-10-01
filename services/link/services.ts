@@ -12,7 +12,7 @@ export const keyLink = {
   totalLinks: "TOTAL_LINKS",
 };
 
-export const PAGE_LIMIT = 5;
+export const PAGE_LIMIT = 8;
 
 export const useGetYtbOembed = (url: string) => {
   return useQuery({

@@ -14,7 +14,7 @@ function Main() {
   if (isLoading) {
     return (
       <div className="w-full flex-center mt-4">
-        <span className="loader size-6" />
+        <span className="loader-md size-6" />
       </div>
     );
   }

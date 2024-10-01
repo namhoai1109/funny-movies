@@ -28,7 +28,6 @@ const requestAuthInterceptor = async (config: InternalAxiosRequestConfig) => {
 };
 
 const handleErrorInterceptor = (error: TErrorResponse | AxiosError) => {
-  console.error("dasdad", error);
   let messageServer = _get(error, "response.data.error.message", "");
   if (messageServer === "") {
     messageServer = _get(error, "response.data", "") as string;

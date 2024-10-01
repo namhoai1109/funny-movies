@@ -34,13 +34,22 @@ body {
   @apply px-4 py-1 rounded-md;
 }
 
-.loader {
-  border: 2px solid #1a1a1a;
+.loader-action {
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+}
+
+.loader {
+  border: 2px solid #1a1a1a;
+  @apply loader-action;
+}
+
+.loader-md {
+  border: 3px solid #1a1a1a;
+  @apply loader-action;
 }
 
 @keyframes rotation {

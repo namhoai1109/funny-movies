@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 interface IVideoProps {
   videoInfo: TYtbOembedResponse;
@@ -14,6 +13,7 @@ function Video({ videoInfo, sharingUser }: IVideoProps) {
         height={videoInfo.thumbnail_height}
         alt="Video Thumbnail"
         src={videoInfo.thumbnail_url}
+        priority
         className="w-1/2 aspect-video border-2 border-black custom-shadow object-cover rounded-md"
       />
       <div className="flex-1">
@@ -22,13 +22,7 @@ function Video({ videoInfo, sharingUser }: IVideoProps) {
         </h3>
         <p>
           <span className="font-semibold">Author name</span>:{" "}
-          <Link
-            href={videoInfo.author_url}
-            target="_blank"
-            className="hover:underline"
-          >
-            {videoInfo.author_name}
-          </Link>
+          {videoInfo.author_name}
         </p>
         <p>
           <span className="font-semibold">Type</span>: {videoInfo.type}
