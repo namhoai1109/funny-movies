@@ -46,7 +46,7 @@ function NavbarItems() {
       toast.success(
         () => {
           return (
-            <div>
+            <div className="custom-text">
               <h4 className="font-bold line-clamp-2">{msg.video_title}</h4>
               <p className="text-sm">
                 shared by{" "}
@@ -73,15 +73,18 @@ function NavbarItems() {
     const user = data.data;
     return (
       <div className="flex-center">
-        <span className="mr-4">Welcome {user.email} !</span>
+        <span className="mr-2 md:mr-4">
+          <span className="sm:inline hidden">Welcome</span> {user.email}{" "}
+          <span className="sm:inline hidden">!</span>
+        </span>
         <Link href={isSharePage ? "/" : "/share"}>
-          <button className="button-md border-2 border-black custom-shadow">
+          <button className="md:px-4 button border-2 border-black custom-shadow">
             {isSharePage ? "Home" : "Share"}
           </button>
         </Link>
-        <div className="h-8 w-0.5 bg-neutral-400 rounded-full ml-5" />
+        <div className="h-8 w-0.5 bg-neutral-400 rounded-full ml-4 md:ml-5" />
         <button
-          className="button-md"
+          className="md:px-4 button"
           onClick={() => {
             localStorage.removeItem("accessToken");
             refetch();
@@ -96,10 +99,10 @@ function NavbarItems() {
   return (
     <div className="flex-center gap-x-2">
       <Link href="/login">
-        <button className="button-md">Login</button>
+        <button className="md:px-4 button">Login</button>
       </Link>
       <Link href="/register">
-        <button className="button-md border-2 border-black custom-shadow">
+        <button className="md:px-4 button border-2 border-black custom-shadow">
           Register
         </button>
       </Link>

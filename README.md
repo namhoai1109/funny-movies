@@ -38,9 +38,13 @@ After cloning repository, follow the commands below:
 ## Running the Application
 
 Start the development server:
-   ```bash
+```bash
    npm run dev
-   ```
+```
+To run tests, start back-end server first and then run command below:
+```bash
+   npm run test 
+```
 
 ## Usage 
 
@@ -56,7 +60,7 @@ To share your funnies Youtube video, follow these steps:
 
 - Find a YouTube Video: Search for a YouTube video you want to share.
 - Copy the Video Link: Copy the link of the YouTube video.
-- Share the Video: Click on the "Share" button on our application and paste the YouTube video link. Click the "Share" button to share the video with other users.
+- Share the Video: Click on the "Share" button on navbar and paste the YouTube video link. Click the "Submit" button to share the video with other users.
 
 #### Real-time Notifications
 

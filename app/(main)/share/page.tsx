@@ -18,9 +18,11 @@ function Share() {
 
   return (
     <div className="w-full flex-center">
-      <div className="w-2/3 mt-[80px]">
-        <h2 className="text-xl font-semibold">Share a Youtube video</h2>
-        <div className="flex items-center justify-between mt-4">
+      <div className="md:w-2/3 sm:w-3/4 w-full mt-[40px] md:mt-[80px]">
+        <h2 className="text-lg sm:text-xl font-semibold">
+          Share a Youtube video
+        </h2>
+        <div className="flex items-center justify-between mt-2 sm:mt-4 custom-text">
           <input
             className="input-border w-3/4 rounded-md p-2"
             placeholder="input Youtube video URL"
@@ -29,10 +31,12 @@ function Share() {
           />
 
           <button
-            className="button-md border-2 border-black custom-shadow flex-center gap-x-2"
+            className="button md:px-4 border-2 border-black custom-shadow flex-center gap-x-2"
             onClick={() => {
               if (!canSubmit || url === "") {
-                toast.error("Please input valid URL");
+                toast.error(
+                  <span className="custom-text">Please input valid URL</span>
+                );
                 return;
               }
 
@@ -42,7 +46,9 @@ function Share() {
                   onSuccess: () => {
                     setUrl("");
                     setCanSubmit(false);
-                    toast.success("Submit successfully!");
+                    toast.success(
+                      <span className="custom-text">Submit successfully!</span>
+                    );
                   },
                 }
               );

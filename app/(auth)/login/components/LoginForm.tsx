@@ -11,12 +11,14 @@ function LoginForm() {
     password: "",
   });
 
-  const { mutate, isLoading } = useLogin();
+  const { mutate } = useLogin();
   const router = useRouter();
 
   const onLogin = () => {
     if (credentials.email === "" || credentials.password === "") {
-      toast.error("Please input email and password");
+      toast.error(
+        <span className="custom-text">Please input email and password</span>
+      );
       return;
     }
 
@@ -34,7 +36,7 @@ function LoginForm() {
   return (
     <Fragment>
       <input
-        className="input-border w-full rounded-md p-2"
+        className="input-border w-full rounded-md p-2 custom-text"
         placeholder="input your email"
         type="text"
         value={credentials.email}
@@ -46,7 +48,7 @@ function LoginForm() {
         }}
       />
       <input
-        className="input-border w-full rounded-md p-2"
+        className="input-border w-full rounded-md p-2 custom-text"
         placeholder="input your password"
         type="password"
         value={credentials.password}
@@ -63,13 +65,12 @@ function LoginForm() {
         }}
       />
       <button
-        className="transition-effect button-md border-2 border-black custom-shadow flex-center gap-x-2"
+        className="button md:px-4 border-2 border-black custom-shadow flex-center gap-x-2 custom-text"
         onClick={() => {
           onLogin();
         }}
       >
         Login
-        {isLoading && <span className="loader size-4" />}
       </button>
     </Fragment>
   );

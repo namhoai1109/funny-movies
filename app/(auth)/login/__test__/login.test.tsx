@@ -57,16 +57,16 @@ describe("Login page", () => {
       render(<LoginPage />);
 
       const input = getEmailInput();
-      await userEvent.type(input, "namhoai@gmail.com");
-      expect(input).toHaveValue("namhoai@gmail.com");
+      await userEvent.type(input, "testemail@gmail.com");
+      expect(input).toHaveValue("testemail@gmail.com");
     });
 
     it("should be able to add password", async () => {
       render(<LoginPage />);
 
       const input = getPasswordInput();
-      await userEvent.type(input, "123456");
-      expect(input).toHaveValue("123456");
+      await userEvent.type(input, "password");
+      expect(input).toHaveValue("password");
     });
 
     it("show toast error if email or password is empty", async () => {

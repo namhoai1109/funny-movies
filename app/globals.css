@@ -30,8 +30,12 @@ body {
   @apply border-2 border-neutral-300 focus-visible:border-black focus-visible:outline-none;
 }
 
-.button-md {
-  @apply px-4 py-1 rounded-md;
+.button {
+  @apply px-2 py-1 rounded-md;
+}
+
+.custom-text {
+  @apply text-xs min-[440px]:text-sm lg:text-base;
 }
 
 .loader-action {

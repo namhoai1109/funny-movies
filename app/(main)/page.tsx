@@ -15,7 +15,7 @@ function Home() {
     return (
       <div className="w-full flex-center flex-col  gap-y-3 mt-4">
         <span className="loader-md size-6" />
-        <div className="w-2/3 text-sm text-center p-2 rounded bg-neutral-200 text-neutral-500">
+        <div className="max-w-xl text-center p-2 rounded bg-neutral-200 text-neutral-500 text-xs min-[440px]:text-sm lg:text-base">
           The server is deployed on Render and will spin down with inactivity,
           which can delay requests by 50 seconds or more.
         </div>
@@ -28,14 +28,14 @@ function Home() {
   const totalLinks = total || 0;
 
   return (
-    <main className="mt-4 w-2/3">
+    <main className="mt-4 max-w-xl">
       <div className="flex flex-col items-center gap-y-2 mb-8">
         {links.map((link) => {
           return (
             <Link
               key={link.id}
               href={link.url}
-              className="w-full transition-effect hover:bg-gray-100 p-3 rounded-lg"
+              className="w-full transition-effect hover:bg-gray-100 mb-2 sm:mb-0 sm:p-3 rounded-lg"
               target="_blank"
             >
               <Video videoInfo={link} sharingUser={link.user} />
@@ -44,7 +44,7 @@ function Home() {
         })}
         {links.length < totalLinks && (
           <button
-            className="border-2 border-black custom-shadow button-md"
+            className="border-2 border-black custom-shadow button text-sm lg:text-base md:px-4"
             onClick={() => {
               fetchNextPage({
                 pageParam: currentPage + 1,

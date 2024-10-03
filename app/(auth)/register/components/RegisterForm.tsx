@@ -10,12 +10,14 @@ function RegisterForm() {
     password: "",
   });
 
-  const { mutate, isLoading } = useRegister();
+  const { mutate } = useRegister();
   const router = useRouter();
 
   const onRegister = () => {
     if (credentials.email === "" || credentials.password === "") {
-      toast.error("Please input email and password");
+      toast.error(
+        <span className="custom-text">Please input email and password</span>
+      );
       return;
     }
 
@@ -33,7 +35,7 @@ function RegisterForm() {
   return (
     <Fragment>
       <input
-        className="input-border w-full rounded-md p-2"
+        className="input-border w-full rounded-md p-2 custom-text"
         placeholder="input your email"
         type="text"
         value={credentials.email}
@@ -45,7 +47,7 @@ function RegisterForm() {
         }}
       />
       <input
-        className="input-border w-full rounded-md p-2"
+        className="input-border w-full rounded-md p-2 custom-text"
         placeholder="input your password"
         type="text"
         value={credentials.password}
@@ -62,18 +64,12 @@ function RegisterForm() {
         }}
       />
       <button
-        className="button-md border-2 border-black custom-shadow flex-center gap-x-2"
+        className="button md:px-4 border-2 border-black custom-shadow flex-center gap-x-2 custom-text"
         onClick={() => {
-          if (!credentials.email || !credentials.password) {
-            toast.error("Please fill in all the fields");
-            return;
-          }
-
           onRegister();
         }}
       >
         Register
-        {isLoading && <span className="loader size-4" />}
       </button>
     </Fragment>
   );
