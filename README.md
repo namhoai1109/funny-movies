@@ -48,8 +48,8 @@ To run tests, start back-end server first and then run command below:
 
 ## Usage 
 
-The web application displays Youtube videos shared from other users in Home page. 
-To share your funnies Youtube video, follow these steps:
+The web application displays Youtube videos shared by other users on Home page. 
+To share your funny Youtube videos, follow these steps:
 
 #### Login/Register
 
@@ -60,7 +60,7 @@ To share your funnies Youtube video, follow these steps:
 
 - Find a YouTube Video: Search for a YouTube video you want to share.
 - Copy the Video Link: Copy the link of the YouTube video.
-- Share the Video: Click on the "Share" button on navbar and paste the YouTube video link. Click the "Submit" button to share the video with other users.
+- Share the Video: Click on the "Share" button on the navbar and paste the YouTube video link. Click the "Submit" button to share the video with other users.
 
 #### Real-time Notifications
 

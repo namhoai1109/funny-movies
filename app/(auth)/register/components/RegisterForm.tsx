@@ -10,7 +10,7 @@ function RegisterForm() {
     password: "",
   });
 
-  const { mutate } = useRegister();
+  const { mutate, isLoading } = useRegister();
   const router = useRouter();
 
   const onRegister = () => {
@@ -70,6 +70,7 @@ function RegisterForm() {
         }}
       >
         Register
+        {isLoading && <span className="loader sm:size-4 size-3" />}
       </button>
     </Fragment>
   );

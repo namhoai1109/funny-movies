@@ -10,7 +10,7 @@ function Share() {
   const [url, setUrl] = useState("");
   const debouncedUrl = useDebounce(url, 500);
   const [canSubmit, setCanSubmit] = useState(false);
-  const { mutate } = useLinkCreation();
+  const { mutate, isLoading } = useLinkCreation();
 
   const handleError = (isError: boolean) => {
     setCanSubmit(!isError);
@@ -55,6 +55,7 @@ function Share() {
             }}
           >
             Submit
+            {isLoading && <span className="loader sm:size-4 size-3" />}
           </button>
         </div>
         {debouncedUrl !== "" && (

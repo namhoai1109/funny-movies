@@ -11,7 +11,7 @@ function LoginForm() {
     password: "",
   });
 
-  const { mutate } = useLogin();
+  const { mutate, isLoading } = useLogin();
   const router = useRouter();
 
   const onLogin = () => {
@@ -71,6 +71,7 @@ function LoginForm() {
         }}
       >
         Login
+        {isLoading && <span className="loader sm:size-4 size-3" />}
       </button>
     </Fragment>
   );
