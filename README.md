@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Funny movies
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+A web application for sharing Youtube videos.
 
+### Key features
+
+- User registration and login
+- Sharing YouTube videos
+- Viewing a list of shared videos
+- Real-time notifications for new video shares 
+
+### Technologies
+
+- Programming Language: [Typescript](https://www.typescriptlang.org/)
+- Framework: [NextJS](https://nextjs.org/), [ReactJS](https://react.dev/)
+- State management library: [React Query](https://tanstack.com/query/v3)
+- CSS framework: [TailwindCSS](https://tailwindcss.com/)
+- Deployment: [Vercel](https://vercel.com/) 
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/en/download/package-manager/current) ^20.11.1
+
+## Installation & Configuration
+
+After cloning repository, follow the commands below:
+1. Copy `env.sample` file to `env.` or run this command:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    cp .env.sample .env
+```
+2. Install dependencies:
+```bash
+    npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running the Application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage 
 
-## Learn More
+The web application displays Youtube videos shared from other users in Home page. 
+To share your funnies Youtube video, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+#### Login/Register
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Register**: Click on the "Register" button to create an account. Fill out the registration form with your details and submit it.
+- **Login**: Once registered, click on the "Login" button to access your account. Enter your credentials and submit the form.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Sharing YouTube Videos
 
-## Deploy on Vercel
+- Find a YouTube Video: Search for a YouTube video you want to share.
+- Copy the Video Link: Copy the link of the YouTube video.
+- Share the Video: Click on the "Share" button on our application and paste the YouTube video link. Click the "Share" button to share the video with other users.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Real-time Notifications
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+When a user shares a new video, all logged-in users will receive a real-time notification about the newly shared video.

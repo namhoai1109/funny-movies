@@ -1,7 +1,7 @@
 "use client";
 import { useRegister } from "@/services/authen/services";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import toast from "react-hot-toast";
 
 function RegisterForm() {
@@ -14,6 +14,11 @@ function RegisterForm() {
   const router = useRouter();
 
   const onRegister = () => {
+    if (credentials.email === "" || credentials.password === "") {
+      toast.error("Please input email and password");
+      return;
+    }
+
     mutate(credentials, {
       onSuccess: (res) => {
         localStorage.setItem(
@@ -26,10 +31,10 @@ function RegisterForm() {
   };
 
   return (
-    <>
+    <Fragment>
       <input
         className="input-border w-full rounded-md p-2"
-        placeholder="input email"
+        placeholder="input your email"
         type="text"
         value={credentials.email}
         onChange={(event) => {
@@ -41,7 +46,7 @@ function RegisterForm() {
       />
       <input
         className="input-border w-full rounded-md p-2"
-        placeholder="input password"
+        placeholder="input your password"
         type="text"
         value={credentials.password}
         onChange={(event) => {
@@ -70,7 +75,7 @@ function RegisterForm() {
         Register
         {isLoading && <span className="loader size-4" />}
       </button>
-    </>
+    </Fragment>
   );
 }
 

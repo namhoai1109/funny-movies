@@ -2,7 +2,8 @@
 
 import { useLogin } from "@/services/authen/services";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import toast from "react-hot-toast";
 
 function LoginForm() {
   const [credentials, setCredentials] = useState({
@@ -14,6 +15,11 @@ function LoginForm() {
   const router = useRouter();
 
   const onLogin = () => {
+    if (credentials.email === "" || credentials.password === "") {
+      toast.error("Please input email and password");
+      return;
+    }
+
     mutate(credentials, {
       onSuccess: (res) => {
         localStorage.setItem(
@@ -26,10 +32,10 @@ function LoginForm() {
   };
 
   return (
-    <>
+    <Fragment>
       <input
         className="input-border w-full rounded-md p-2"
-        placeholder="input email"
+        placeholder="input your email"
         type="text"
         value={credentials.email}
         onChange={(event) => {
@@ -41,7 +47,7 @@ function LoginForm() {
       />
       <input
         className="input-border w-full rounded-md p-2"
-        placeholder="input password"
+        placeholder="input your password"
         type="password"
         value={credentials.password}
         onChange={(event) => {
@@ -65,7 +71,7 @@ function LoginForm() {
         Login
         {isLoading && <span className="loader size-4" />}
       </button>
-    </>
+    </Fragment>
   );
 }
 

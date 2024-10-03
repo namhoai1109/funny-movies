@@ -7,7 +7,7 @@ import {
 } from "@/services/link/services";
 import Link from "next/link";
 
-function Main() {
+function Home() {
   const { data, isLoading, fetchNextPage } = useListLinks();
   const { data: total } = useCountTotalLinks();
 
@@ -59,4 +59,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Home;

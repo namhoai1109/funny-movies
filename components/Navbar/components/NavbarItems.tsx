@@ -6,7 +6,6 @@ import { useEffect, useMemo } from "react";
 import toast from "react-hot-toast";
 
 const SERVER_NAME = process.env.NEXT_PUBLIC_SERVER_NAME;
-const SERVER_PORT = process.env.NEXT_PUBLIC_SERVER_PORT;
 const STAGE = process.env.NEXT_PUBLIC_STAGE;
 
 function NavbarItems() {
@@ -16,11 +15,9 @@ function NavbarItems() {
   const isAuthenticated = data !== undefined && data.data.id !== 0;
 
   const ws = useMemo(() => {
-    const url =
-      STAGE === "development"
-        ? `ws://${SERVER_NAME}:${SERVER_PORT}/ws`
-        : `wss://${SERVER_NAME}/ws`;
-    return new WebSocket(url);
+    return new WebSocket(
+      `${STAGE === "development" ? "ws" : "wss"}://${SERVER_NAME}/ws`
+    );
   }, []);
 
   useEffect(() => {
